@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+<head>
+<title>Online food ordering</title>
+<link rel="stylesheet" type="text/css" href="css/modern.css" />
+<style>
+.page {
+width: 1020px  !important;
+margin: auto !important;
+}
+fieldset {
+	width: 460px;
+	float: left;
+}
+</style>
+
+</head>
+<body>
+
+<h2 style="float:right; margin:20px">Need Help? Call 123456789</h2>
+<h2 align="center";>ONLINE FOOD ORDERING</h2>
+<h4><strong>Restaurants you can choose from</strong></h4>
+<li><a href="arabian">Arabian</a></li>
+<li><a href="chickpunch">Chick Punch</a></li>
+<li><a href="shreenidhi">Shree Nidhi</a></li>
+<li><a href="mrkurry">Mr. Kurry</a></li>
+<li><a href="karaikudi">Karaikudi</a></li>
+<li><a href="streetfoods">Street Foods</a></li>
+<li><a href="breadbasket">Bread Basket Bakery</a></li>
+</ul>
+<style>
+.pointer {
+cursor: pointer;
+color: #2e92cf;
+}
+.pointer:hover {
+color: rgba(45, 173, 237, 0.8);
+}
+</style>
+<script src="js/formvalidation.js" ></script>
+<script>
+function forgot() {
+	var usernameval = document.getElementById("username").value;
+	if (!usernameval)
+		alert("Enter your email-id or roll number");
+	else if(!username())
+		alert("Invalid entry in the field: Email / Rollno");
+	else {
+		var xmlhttp;
+		if(window.XMLHttpRequest)// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp=new XMLHttpRequest();
+		else	// code for IE6, IE5
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			alert(xmlhttp.responseText);
+		}
+		xmlhttp.open("GET","php/forgot.php?username="+usernameval,true);
+		xmlhttp.send();
+	}
+}
+</script>
+<form name="form"  action="" method="post" onsubmit="return jslogin()" >
+<fieldset>
+<legend>
+Sign In
+</legend>
+<div>
+	<div class="input-control text span3">
+	<input id="username" type="text" name="username" title="Enter Email or Roll Number" placeholder="Email / Rollno" value="" onchange="jsusername()" pattern="([a-zA-Z0-9._-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z]+)*|\d{9})" required autofocus/> 
+	</div>
+	<span class="fg-color-redLight" id="err-username"></span>
+</div>
+<div>
+	<div class="input-control password span3">
+	<input id="password" type="password" name="password" title="Password - Minimum 5 char" placeholder="Password" value="" maxlength="20" pattern="^.{5,20}$"  required/>
+	</div>
+</div>
+<div class="fg-color-redLight" id="err-login"></div>
+<input type="submit" name="signin" value="Log In"/>
+<span class="pointer" id="forgot" onclick="forgot()">Forgot Password?</span>
+</fieldset>
+</form><form name="registerform" action="" method="post" onsubmit="return jssignup()">
+<fieldset>
+<legend>Hurry!!! Register Now!</legend>
+<div>
+	<div class="input-control text span3">
+	<span class="fg-color-redLight" id="err-name"></span>
+	<input type="text" id="name" name="name" title="Enter your Full Name" placeholder="Full Name" value="" autofocus onchange="jsname()" style="text-transform:capitalize" pattern="^[A-Za-z][A-Za-z. ]+$" required/>
+	</div>
+</div>
+<div>	
+	<div class="input-control text span3">
+	<span class="fg-color-redLight" id="err-email"></span>
+	<input id="email" type="email" name="email" title="Enter your email address" placeholder="Email Address" value="" onchange="jsemail()" required/>
+	</div>
+</div>
+<div>
+	<div class="input-control password span3">
+	<span class="fg-color-redLight" id="err-password"></span>
+	<input id="password" type="password" name="password" title="Minimum 5 char long" placeholder="Password" value="" maxlength="20" onchange="jspassword()" pattern="^.{5,20}$" required />
+	</div>
+</div>
+<div>
+	<div class="input-control text span3">
+	<span class="fg-color-redLight" id="err-rollno"></span>
+	<input type="text" id="rollno" name="rollno" title="Your 9 digit college roll number" placeholder="Roll Number" value="" maxlength="9" onchange="jsrollno()" pattern="^\d{9}$" required/>
+	</div>
+</div>
+<div>
+	<div class="input-control select span3">
+	<span class="fg-color-redLight" id="err-hostel"></span>
+	<select id="hostel" name="hostel" title="Where do you want your food to be delivered?" onchange="jshostel()" required>
+		<option id="Hostel" value="Hostel" disabled selected>Hostel</option>
+		<option id="Agate" value="Agate">Agate</option>
+		<option id="Amber-A" value="Amber-A">Amber-A</option>
+		<option id="Amber-B" value="Amber-B">Amber-B</option>
+		<option id="Aquamarine-A" value="Aquamarine-A">Aquamarine-A</option>
+		<option id="Aquamarine-B" value="Aquamarine-B">Aquamarine-B</option>
+		<option id="Aquamarine-C" value="Aquamarine-C">Aquamarine-C</option>
+		<option id="Coral" value="Coral">Coral</option>
+		<option id="Diamond" value="Diamond">Diamond</option>
+		<option id="Jade" value="Jade">Jade</option>
+		<option id="Garnet-A" value="Garnet-A">Garnet-A</option>
+		<option id="Garnet-B" value="Garnet-B">Garnet-B</option>
+		<option id="Garnet-C" value="Garnet-C">Garnet-C</option>
+		<option id="Emerald" value="Emerald">Emerald</option>
+		<option id="Lapis" value="Lapis">Lapis</option>
+		<option id="Pearl" value="Pearl">Pearl</option>
+		<option id="Ruby" value="Ruby">Ruby</option>
+		<option id="Sapphire" value="Sapphire">Sapphire</option>
+		<option id="Topaz" value="Topaz">Topaz</option>
+		<option id="Opal-A" value="Opal-A">Opal-A</option>
+		<option id="Opal-B" value="Opal-B">Opal-B</option>
+		<option id="Opal-C" value="Opal-C">Opal-C</option>
+		<option id="Opal-D" value="Opal-D">Opal-D</option>
+		<option id="Opal-E" value="Opal-E">Opal-E</option>
+		<option id="Zircon-A" value="Zircon-A">Zircon-A</option>
+		<option id="Zircon-B" value="Zircon-B">Zircon-B</option>
+		<option id="Zircon-C" value="Zircon-C">Zircon-C</option>
+	</select>
+	</div>
+</div>
+<div>
+	<div class="input-control text span3">
+	<span class="fg-color-redLight" id="err-mobile"></span>
+	<input id="mobile" type="phone" name="mobile" maxlength="10" title="Enter your 10-digit mobile number" placeholder="Mobile Number" value="" onchange="jsmobile()" pattern="^[789]\d{9}$" required/>
+	</div>
+</div>
+<input type="submit" value="Submit" name="submit"/>
+</fieldset>
+</form>
+</body>
+</html>
+</div>
+</body>
+</html>
